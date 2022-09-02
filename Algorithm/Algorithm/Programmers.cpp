@@ -8,6 +8,8 @@
 #include <algorithm>
 #include<math.h>
 #include<string.h>
+#include<tuple>
+
 
 using namespace std;
 //퀵정렬
@@ -246,6 +248,87 @@ int  main(void)
 
 
 #pragma region Programers
+
+
+string MBTI_(vector<string> survey, vector<int> choices) {
+
+	/*
+		char MBTI[4][2] = {
+	{'R','T'},
+	{'C','F'},
+	{'J','M'},
+	{'A','N'}
+	};
+
+	string solution(vector<string> survey, vector<int> choices) {
+		string ans = "";
+		map<char, int> score;
+
+		for (int i = 0; i < survey.size(); ++i) {
+			if (choices[i] < 4) {
+				score[survey[i][0]] += (4 - choices[i]);
+			}
+			else {
+				score[survey[i][1]] += (choices[i] - 4);
+			}
+		}
+
+		for (int i = 0; i < 4; ++i) {
+			if (score[MBTI[i][0]] >= score[MBTI[i][1]]) ans += MBTI[i][0];
+			else ans += MBTI[i][1];
+		}
+
+		return ans;
+	}
+
+
+
+	생각 하던 풀이는 이거랑 비슷한데 더 생각안하고 풀어도 몇줄 차이 안날거 같아서 걍 풀었더니 길어졌다
+	const char을 추가함으로 for문으로 검색후 비교를 구현한 부분이 참고할수있는점인거 같다
+
+	*/
+
+
+	string answer = "";
+	std::unordered_map<char, int> MBTI_Data;
+	MBTI_Data.insert(make_pair('R', 0));
+	MBTI_Data.insert(make_pair('T', 0));
+
+	MBTI_Data.insert(make_pair('C', 0));
+	MBTI_Data.insert(make_pair('F', 0));
+
+	MBTI_Data.insert(make_pair('J', 0));
+	MBTI_Data.insert(make_pair('M', 0));
+
+	MBTI_Data.insert(make_pair('A', 0));
+	MBTI_Data.insert(make_pair('N', 0));
+	const int ChoicesScore[7] = { 3,2,1,0,1,2,3 };
+
+	for (int i = 0; i < survey.size(); i++) {
+		int ChoiesNum = choices[i] - 1;
+
+		if (ChoiesNum < 4) {
+			MBTI_Data[survey[i][0]] += ChoicesScore[ChoiesNum];
+		}
+		else {
+			MBTI_Data[survey[i][1]] += ChoicesScore[ChoiesNum];
+		}
+	}
+
+	if (MBTI_Data['R'] < MBTI_Data['T']) answer += 'T';
+	else answer += 'R';
+
+	if (MBTI_Data['C'] < MBTI_Data['F']) answer += 'F';
+	else answer += 'C';
+
+	if (MBTI_Data['J'] < MBTI_Data['M']) answer += 'M';
+	else answer += 'J';
+
+	if (MBTI_Data['A'] < MBTI_Data['N']) answer += 'N';
+	else answer += 'A';
+
+	return answer;
+}
 
 bool bracket(string s)
 {
