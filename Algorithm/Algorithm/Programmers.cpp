@@ -9,7 +9,7 @@
 #include<math.h>
 #include<string.h>
 #include<tuple>
-
+#include <string>
 
 using namespace std;
 //퀵정렬
@@ -131,25 +131,25 @@ public:
 int  main(void)
 {
 
-	//run_lenth
-	string s = "aabbaccc";
-	int answer = 0;
+	////run_lenth
+	//string s = "aabbaccc";
+	//int answer = 0;
 
-	string LenthSize = 0;
-	vector<int> sizeList = {};
-	string compare = "";
-	for (int i = 0; i < s.size() / 2; i++) {
-		for (int j = 0; j < s.size(); j++) {
-			compare = s.substr(j, i);
+	//string LenthSize = 0;
+	//vector<int> sizeList = {};
+	//string compare = "";
+	//for (int i = 0; i < s.size() / 2; i++) {
+	//	for (int j = 0; j < s.size(); j++) {
+	//		compare = s.substr(j, i);
 
-		}
-	}
+	//	}
+	//}
 
-	return answer;
+
 #pragma region MyRegion
 	MyClass m;
 	m.b = 1;
-	int MaxNum = 0;
+	//int MaxNum = 0;
 	vector<vector<int>> Grap;
 	//그래프문제 - 받는 전체 배열의 가장큰 수를 받는다
 	// 그 크기만큼 배열크기를 키워준다. 양방향 벡터
@@ -249,6 +249,50 @@ int  main(void)
 
 #pragma region Programers
 
+
+string String_Min_Max(string s) {
+	string answer = "";
+	int MinNum = 2147483647;
+	int MaxNum = -2147483647;
+	bool First = true;
+	string numm = "";
+	char Ch = ' ';
+
+	for (int i = 0; i <= s.length(); i++) {
+
+		if (i < s.length())
+			Ch = s[i];
+
+		if (Ch == ' ' || i == s.length()) {
+			int Num = 0;
+			Num = stoi(numm);
+			if (First)
+			{
+				MinNum = Num;
+				MaxNum = Num;
+				Num = 0;
+				numm = "";
+				First = false;
+				continue;
+			}
+
+			if (MinNum > Num) {
+				MinNum = Num;
+			}
+			else if (MaxNum < Num) {
+				MaxNum = Num;
+			}
+			Num = 0;
+			numm = "";
+		}
+		else {
+			numm += Ch;
+		}
+	}
+
+	answer = { to_string(MinNum) + ' ' + to_string(MaxNum) };
+	return answer;
+}
 
 string MBTI_(vector<string> survey, vector<int> choices) {
 
