@@ -9,8 +9,7 @@
 #include<math.h>
 #include<string.h>
 #include<tuple>
-#include <string>
-
+#include<bitset>
 using namespace std;
 //퀵정렬
 vector<int> QuickSortting(vector<int> a)
@@ -131,6 +130,28 @@ public:
 int  main(void)
 {
 
+	//vector<int> citations = {3,0,6,1,5};
+	//int answer = 0;
+	//sort(citations.begin(), citations.end());
+	//for (int i = 0; i < citations.size(); i++) {
+	//	if (citations[i] >= i) {
+	//		answer = citations.size() - i;
+	//		break;
+	//	}
+	//}
+	vector<string> babbling = {"ayaye", "uuu", "yeye", "yemawoo", "ayaayaa"};
+	vector<string> CanSay = { "aya","ye","woo","ma" };
+	int answer = 0;
+	
+	for (auto a : babbling) {
+		for (int i = 0; i < a.size(); i++) {
+			for (int j = 0; j < CanSay.size(); j++) {
+
+			}
+		}
+	}
+
+
 	////run_lenth
 	//string s = "aabbaccc";
 	//int answer = 0;
@@ -144,62 +165,62 @@ int  main(void)
 
 	//	}
 	//}
-
+}
 
 #pragma region MyRegion
-	MyClass m;
-	m.b = 1;
-	//int MaxNum = 0;
-	vector<vector<int>> Grap;
-	//그래프문제 - 받는 전체 배열의 가장큰 수를 받는다
-	// 그 크기만큼 배열크기를 키워준다. 양방향 벡터
+//MyClass m;
+//m.b = 1;
+//int MaxNum = 0;
+//vector<vector<int>> Grap;
+//그래프문제 - 받는 전체 배열의 가장큰 수를 받는다
+// 그 크기만큼 배열크기를 키워준다. 양방향 벡터
 
-	// [1.2] 면 1ㅡ2 2ㅡ1 둘다 배열을 채워준다.
-	// 길찾기 알고리즘을 짜준다
-	// [1에서 시작해서 [1,2] 면 2 의 [1] [3] [4] 가 있으면 이전노드의 정보를 들고오고
-	// 크기만큼 일반 배열생성
-	// 도착 하는 가장빠른 숫자를 그배열에 입력
-	// 보다 커지면 목표 변경
-	//
+// [1.2] 면 1ㅡ2 2ㅡ1 둘다 배열을 채워준다.
+// 길찾기 알고리즘을 짜준다
+// [1에서 시작해서 [1,2] 면 2 의 [1] [3] [4] 가 있으면 이전노드의 정보를 들고오고
+// 크기만큼 일반 배열생성
+// 도착 하는 가장빠른 숫자를 그배열에 입력
+// 보다 커지면 목표 변경
+//
 
 
-	//int rows = 6;
-	//int columns = 6;
-	//vector<vector<int>> Maps;
-	//vector<vector<int>> queries;
-	//vector<int> answer;
+//int rows = 6;
+//int columns = 6;
+//vector<vector<int>> Maps;
+//vector<vector<int>> queries;
+//vector<int> answer;
 
-	////((i-1) x columns + j)
-	//int a = 1;
-	//for (int i = 0; i < rows; i++) {
-	//	//queries.push_back(new vector<int>());
-	//	Maps.push_back(answer);
-	//	for (int j = 0; j < columns; j++) {
-	//		Maps[i].push_back(a++);
-	//	}
-	//}
+////((i-1) x columns + j)
+//int a = 1;
+//for (int i = 0; i < rows; i++) {
+//	//queries.push_back(new vector<int>());
+//	Maps.push_back(answer);
+//	for (int j = 0; j < columns; j++) {
+//		Maps[i].push_back(a++);
+//	}
+//}
 
-	//int xS = 0;
-	//int yS = 0;
-	//int xE = 0;
-	//int yE = 0;
-	//int xL = 0;
-	//int yL = 0;
-	//int ALenth = 0;
-	//for (int i = 0; i < queries.size(); i++)
-	//{
-	//	xS = queries[i][0];
-	//	yS = queries[i][1];
-	//	xE = queries[i][2];
-	//	yE = queries[i][3];
-	//	ALenth = ((xE - xS) + (yE - yS)) * 2;
+//int xS = 0;
+//int yS = 0;
+//int xE = 0;
+//int yE = 0;
+//int xL = 0;
+//int yL = 0;
+//int ALenth = 0;
+//for (int i = 0; i < queries.size(); i++)
+//{
+//	xS = queries[i][0];
+//	yS = queries[i][1];
+//	xE = queries[i][2];
+//	yE = queries[i][3];
+//	ALenth = ((xE - xS) + (yE - yS)) * 2;
 
-	//	while (ALenth-- >= 0)
-	//	{
+//	while (ALenth-- >= 0)
+//	{
 
-	//	}
+//	}
 
-	//}
+//}
 
 
 //	answer;
@@ -243,12 +264,70 @@ int  main(void)
 */
 
 
-}
+
 
 
 
 #pragma region Programers
 
+
+
+
+string Number_partner(string X, string Y) {
+	string answer = "";
+	unordered_map<char, int>X_HM;
+	unordered_map<char, int>Y_HM;
+	for (int i = 0; i < X.size(); i++) {
+		X_HM[X[i]]++;
+	}
+
+	for (int i = 0; i < Y.size(); i++) {
+		Y_HM[Y[i]]++;
+	}
+	// 중복비교가 생기나 1~9임으로 그냥 중복비교 제거를 생략함
+	//9번만 1번씩 비교해봐도 가능하지만 귀찮음
+	for (auto a : X_HM) {
+		for (auto b : Y_HM) {
+			if (a.first == b.first) {
+				int c = a.second > b.second ? b.second : a.second;
+				for (int k = 0; k < c; k++) {
+					answer += a.first;
+				}
+			}
+		}
+	}
+	if (answer.size() == 0) return "-1";
+	sort(answer.begin(), answer.end(), greater<>());
+
+	if (answer[0] == '0') answer = "0";
+
+	return answer;
+}
+
+vector<int> binary_Changeing(string s) {
+	vector<int> answer = { 0,0 };
+	while (s != "1")
+	{
+		answer[0]++;
+		string s2 = s;
+		//나중에 찾기위해 테그 달기 ( 특정 문자 제거)
+		s2.erase(remove(s2.begin(), s2.end(), '0'), s2.end());
+		answer[1] += (s.length() - s2.length());
+		s = "";
+		int lenth = s2.length();
+
+		//나중에 찾기위해 테그 달기 ( 10진수 2진수 변환)
+		while (lenth != 0)
+		{
+			if (lenth % 2 == 1)
+				s.insert(0, "1");
+			else
+				s.insert(0, "0");
+			lenth /= 2;
+		}
+	}
+	return answer;
+}
 
 string String_Min_Max(string s) {
 	string answer = "";
@@ -418,7 +497,7 @@ string JadenCaseString(string s) {
 	수학의 이해도가 필요한 문제
 	( A + B ) % C  = (( A % C ) + ( B % C ))%C
 
-	50000 +50000 =100000 / @
+	(50000 +50000 ) / @
 	보다
 	50000/@ + 50000/@ 가 계산 숫자 길이가 짧다.
 */
@@ -436,7 +515,6 @@ int pebonachi_1234567(int n) {
 	}
 	return answer;
 }
-
 
 //바바리맨 스파이 - 해쉬+확률 사용문제
 //알고리즘 배워둬야하는이유  2점인 이유를 모르긴 하겠는데...
