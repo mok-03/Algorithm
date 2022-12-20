@@ -10,10 +10,70 @@
 #include<string.h>
 #include<tuple>
 #include<bitset>
+#include "Programmers.h"
 using namespace std;
 //ÄüÁ¤·Ä
 vector<int> QuickSortting(vector<int> a)
 {
+	/*
+	#include <vector>
+
+	// Function prototype
+	std::vector<int> QuickSortting(std::vector<int> a);
+
+	int main() {
+	  // Create a vector of integers
+	  std::vector<int> a = {4, 2, 7, 5, 1, 6, 8, 3};
+
+	  // Sort the vector using QuickSort
+	  std::vector<int> sorted = QuickSortting(a);
+
+	  // Print the sorted vector
+	  for (int i = 0; i < sorted.size(); i++) {
+		std::cout << sorted[i] << " ";
+	  }
+	  std::cout << std::endl;
+
+	  return 0;
+	}
+
+	std::vector<int> QuickSortting(std::vector<int> a) {
+	  // Base case: return if the vector contains only one element
+	  if (a.size() == 1) return a;
+
+	  // Get the middle element of the vector
+	  int half = a.size() / 2;
+	  int ahalf = a[half];
+
+	  // Initialize vectors for left and right subarrays
+	  std::vector<int> Left, Right;
+
+	  // Partition the vector into left and right subarrays
+	  for (int i = 0; i < a.size(); i++) {
+		if (i == half) continue; // Skip the middle element
+		if (a[i] < ahalf) {
+		  Left.push_back(a[i]);
+		}
+		else {
+		  Right.push_back(a[i]);
+		}
+	  }
+
+	  // Recursively sort the left and right subarrays
+	  if (Left.size() != 0) Left = QuickSortting(Left);
+	  if (Right.size() != 0) Right = QuickSortting(Right);
+
+	  // Concatenate the left subarray, middle element, and right subarray
+	  std::vector<int> result;
+	  result.insert(result.end(), Left.begin(), Left.end());
+	  result.push_back(ahalf);
+	  result.insert(result.end(), Right.begin(), Right.end());
+
+	  return result;
+	}
+	ai ÇÇµå¹é ¿¡Àü¿¡ º»°Å °°ÀºÄÚµåÀÓ ÄÚµå°¡ ÈÎ¾À ±ò²ûÇÔ
+	*/
+
 	int half = a.size() / 2;
 	vector<int> Left, Right;
 	int ahalf = a[half];
@@ -53,7 +113,6 @@ vector<int> QuickSortting(vector<int> a)
 	}
 	return rsum;
 }
-
 
 
 //
@@ -126,9 +185,20 @@ public:
 	int bc;
 };
 
+long long solution(int w, int h) {
+	unsigned long long answer = 1;
+	unsigned long long maxBox = w * h;
+	 float ratioPerCompartment;
+	ratioPerCompartment = w < h ? ceil(float(h) / w) * w : ceil(float(w) / h) * h;
+	answer = maxBox - ratioPerCompartment;
+	return answer;
+}
 
-int  main(void)
-{
+
+
+int main() {
+	
+	cout<<solution(7,5);
 
 	//vector<int> citations = {3,0,6,1,5};
 	//int answer = 0;
@@ -139,10 +209,10 @@ int  main(void)
 	//		break;
 	//	}
 	//}
-	vector<string> babbling = {"ayaye", "uuu", "yeye", "yemawoo", "ayaayaa"};
+	vector<string> babbling = { "ayaye", "uuu", "yeye", "yemawoo", "ayaayaa" };
 	vector<string> CanSay = { "aya","ye","woo","ma" };
 	int answer = 0;
-	
+
 	for (auto a : babbling) {
 		for (int i = 0; i < a.size(); i++) {
 			for (int j = 0; j < CanSay.size(); j++) {
@@ -150,23 +220,7 @@ int  main(void)
 			}
 		}
 	}
-
-
-	////run_lenth
-	//string s = "aabbaccc";
-	//int answer = 0;
-
-	//string LenthSize = 0;
-	//vector<int> sizeList = {};
-	//string compare = "";
-	//for (int i = 0; i < s.size() / 2; i++) {
-	//	for (int j = 0; j < s.size(); j++) {
-	//		compare = s.substr(j, i);
-
-	//	}
-	//}
 }
-
 #pragma region MyRegion
 //MyClass m;
 //m.b = 1;
