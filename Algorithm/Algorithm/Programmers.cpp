@@ -11,6 +11,7 @@
 #include<tuple>
 #include<bitset>
 #include "Programmers.h"
+#include <functional>
 using namespace std;
 //퀵정렬
 vector<int> QuickSortting(vector<int> a)
@@ -73,6 +74,7 @@ vector<int> QuickSortting(vector<int> a)
 	}
 	ai 피드백 에전에 본거 같은코드임 코드가 훨씬 깔끔함
 	*/
+
 
 	int half = a.size() / 2;
 	vector<int> Left, Right;
@@ -179,26 +181,948 @@ public:
 	//	cout << "bb";
 	//}
 };
+
+
+int solution(int n, int k, vector<int> enemy) {
+	int answer = 0;
+	vector<int> BigerStage{}; //bigerstage 는 stage를 그냥 n으로 돌면서 큰값을들 오름차순으로 넣기 
+	// k개수를 계산하기 시작하면 k값만큼 biger 
+//1 7 3 5  4 5 5 B[7 5 3]  3 5 5 , n = 2
+//1 7 5 3  4 5 5 B[7 5 3]  3 5 5 , n = 2 
+
+
+//넘어가는조건
+/*
+1. 일단 자신n보다 enemy[i] 값이 더크면 무조건 스킵
+2. 자신보다 큰데 k가 여분이 없으면 거기서 스탑
+3. 자신이 끝까지 도착했는데 (n을 다소모했는데) k가 남을시
+4. 자신의 bigerstage  에 자신이 지나왔던 가장큰 숫자를 k만큼 추가하고 추가한 숫자 종합 n 추가
+5. if n만큼 가는데 bigerstage 값중 제일작은값보다 큰값이 (나왔을경우 제일작은값 - 현재 가진 n값)
+ if  (7 15 5) 바로 다음값이 중 20을만날경우
+ 현재 포인트는 27이지만 하나라도 뺄경우 20까지 올수가 없기때문에 크더라도 뭘할수가 없음 r그냥 계산
+ 하지만
+ 그럼 그때그때 해줘야겠네
+ 에메한경우를 위해 n이 6 이고 enum[] 이 7 인경우 큰거 하나만 쓰고 다시 비교했을때 가능하기도 함
+ 내부에 k를 안쓰고 계산 한것중 가장큰값 3 8 2  , n 6  [ 7 1]  지나온값 ,n값, 남은 값 인경우
+		7을 무시하는것보다  k가아닌 자신의 포인트를 사용한 8을제외하고 계산하면 1이 더남음
+
+
+	조건
+	1. 직진하다 n보다 큰수를 만남
+	2. 자신이 지나온 길에 있는 숫자들 보다 큼 -> k사용
+	3. k를 사용하여 넘어온 수는 아에 k를-해준뒤 enum[i] = 0 을 해줌 비교못하게
+	4.
+
+*/
+	for (int i = 0; i < enemy.size(); i++) {
+		if (enemy[i] <= n) { // n 보다 스테이지가 작을떼
+			n -= enemy[i];
+			if (BigerStage.size() == 0) {
+
+				BigerStage.push_back(enemy[i]);
+			}
+			else if (BigerStage[0] < enemy[i]) {
+				BigerStage.insert(BigerStage.begin(), enemy[i]);
+			}
+			else {
+				for (int j = 0; j < BigerStage.size(); j++) {
+					if (BigerStage[j] < enemy[i] && BigerStage[j] != 0) {
+						BigerStage.insert(BigerStage.begin() + j - 1, enemy[i]);
+						break;
+					}
+				}
+				BigerStage.push_back(enemy[i]);
+
+			}
+			answer++;
+		}
+		else if (k > 0) { // 커서 이기지 못할때
+
+			// 자신이 직접 클리어한 스테이지 중에 enemy[i] 스테이지 보다 큰 숫자가 있는지 확인
+			// 더큰수가 있으면 그거 스킵한뒤 다음스테이지 현재 점수 깍고 진행
+			for (int j = 0; j < BigerStage.size(); j++) {
+				if (BigerStage[j] == 0) continue;
+
+				if (BigerStage[j] > enemy[i]) {
+					n += BigerStage[j] - enemy[j];
+
+					BigerStage[j] = 0;
+					break;
+				}
+			}
+			k--;
+			answer++;
+		} //작지만 k가 없을때
+		else {
+			break;
+		}
+	}
+
+
+	//현재 그걸로 갈수 있는 길이중 [oooooxxx] o만큼 갈수 있다면 그사이에 있는 가장큰 값을 k개 제외
+	// 그러면 x값에서 제외한숫자를 n에 더한뒤 다시 계산 그러면 계산한 숫자만큼 +
+	//주의할점 무조건 크다고 제외하면 손해봄(도착을못해서) , 그 스테이지를 도착하더라도 내 n값이 enemy[i] 값보다 작으면 그 스테이지는
+	//값을 안쳐줌
+
+	return answer;
+}
+//마지막에 bool과 bigerNumber와 smallNumber로 코드 정리
+int EraToseTenes_chea(int n);
 class MyClass : public  A
 {
 public:
-	int bc;
+	static vector<void* (*)(void*)> vec;
+	int bc = 10;
+	void Sele() {
+		cout << bc;
+	}
+
+
+
+};
+class Player
+{
+
+public:
+	Player(int c) : b(c) { cout << a << endl; };
+	int b = 21;
+	void playerMove();
+	void playerIdle();
+private:
+	int a = 10;
+
+};
+void Player::playerMove()
+{
+	this->a += this->b;
+}
+void Player::playerIdle() {
+	cout << a << endl;
+}
+//template <typename T>
+class Deleg {
+public:
+	//void (T::* funcs)(T);
+	std::vector<std::function<void()>> Deleg;
+};
+enum PlayerState
+{
+	Move,
+	Idel,
+	Skill,
+	GenderCount
 };
 
-long long solution(int w, int h) {
-	unsigned long long answer = 1;
-	unsigned long long maxBox = w * h;
-	 float ratioPerCompartment;
-	ratioPerCompartment = w < h ? ceil(float(h) / w) * w : ceil(float(w) / h) * h;
-	answer = maxBox - ratioPerCompartment;
-	return answer;
+class BTree {
+	int Number_L;
+	int Number_R;
+
+
+};
+
+vector<int> hackyoul(long long k, int i, vector<int> num) {
+
+	int b = i * (i - 1);
+	if (i < k && b >k) {
+		num.push_back(k % i);
+		return hackyoul(k, i + 1, num);
+	}
+	return num;
 }
 
 
+//
+//int mAPsolution(vector<vector<int> > map, int PlayerPos[2], int CountTile)
+//{
+//
+//	
+//
+//	if (PlayerPos[0] == map.size() - 1 && PlayerPos[1] == map[0].size() - 1) {
+//
+//		return CountTile + 1;
+//	}
+//	while (true)
+//	{
+//		if (CountTile >= smallerD)
+//			return-1;
+//		vector<int> Rood[2] = {{},{}};
+//
+//		for (int i = 0; i < 4; i++) {
+//
+//			int exPlayerPos[2] = { PlayerPos[0] + (maps[i][0]), (PlayerPos[1]) + maps[i][1] };
+//			if ((0 <= (exPlayerPos[0]) && 0 <= (exPlayerPos[1])) &&
+//				(map.size() > (exPlayerPos[0]) && map[0].size() > (exPlayerPos[1]))
+//
+//				) {
+//				if (map[(exPlayerPos[0])][(exPlayerPos[1])])
+//				{
+//				
+//					Rood[0].push_back(exPlayerPos[0]);
+//					Rood[1].push_back(exPlayerPos[1]);
+//				}
+//			}
+//
+//		}
+//		if (Rood[0].size() > 1) {
+//
+//			vector<int> Rvalue = {};
+//
+//			string SRood = to_string((PlayerPos[0])) + to_string((PlayerPos[1]));
+//			if ((Croosmap[SRood] == 0 || Croosmap[SRood] > CountTile)) {
+//				Croosmap[SRood] = CountTile;
+//			}
+//			else {
+//				return-1;
+//			}
+//			map[(PlayerPos[0])][(PlayerPos[1])] = 0;
+//			CountTile++;
+//
+//			for (int i = 0; i < Rood[0].size(); i++) {
+//				int RoodPos[2] = { Rood[0][i],Rood[1][i] };
+//				int returnValue = mAPsolution(map, RoodPos, CountTile);
+//
+//				if (returnValue > 0) {
+//					Rvalue.push_back(returnValue);
+//				}
+//			}
+//
+//			if (Rvalue.size() > 0) {
+//				int smaller = Rvalue[0];
+//				for (int values : Rvalue) {
+//					if (smaller > values) {
+//						smaller = values;
+//					}
+//				}
+//				smallerD = smaller;
+//				return smaller;
+//			}
+//			return -1;
+//		}
+//		else if (Rood[0].size() == 1) {
+//
+//			map[(PlayerPos[0])][(PlayerPos[1])] = 0;
+//			int RoodPos[2] = { Rood[0][0],Rood[1][0] };
+//			PlayerPos = (RoodPos);
+//			CountTile++;
+//
+//			if (PlayerPos[0] == map.size() - 1 && PlayerPos[1] == map[0].size() - 1) {
+//
+//				cout << CountTile << endl;
+//				return CountTile + 1;
+//			}
+//		}
+//		else {
+//
+//			if (PlayerPos[0] == map.size() - 1 && PlayerPos[1] == map[0].size() - 1) {
+//
+//				cout << CountTile << endl;
+//				return CountTile + 1;
+//			}
+//			return -1;
+//		}
+//
+//
+//
+//
+//
+//
+//	}
+//
+//
+//}
+#include <queue>;
+class Rload {
+public:
+	int value;
+	int x;
+	int y;
+};
+static const int mapMove[4][2] = { {0,1},{1,0},{0,-1} ,{-1,0} };
+queue<Rload> CroosRload = {};
+int Rood[2][4] = { {0,0,0,0},{0,0,0,0} };
+
+/*
+int mAPsolution(vector<vector<int> >& map, int PlayerPosx, int PlayerPosy, int CountTile)
+{
+
+	int movedPlayerx = -99;
+	int movedPlayery = -99;
+
+
+
+	while (true)
+	{
+
+		if (PlayerPosx == map.size() - 1 && PlayerPosy == map[0].size() - 1) {
+
+			return CountTile + 1;
+		}
+
+		for (int i = 0; i < map.size(); i++)
+		{
+			for (int j = 0; j < map[0].size(); j++)
+			{
+				if ((PlayerPosx) == i && ((PlayerPosy) == j)) {
+					cout << "▲";
+					continue;
+				}
+
+				if (map[i][j] == 1) {
+					cout << "□";
+				}
+				else if (map[i][j] == 2) {
+					cout << "◆";
+				}
+				else { cout << "■"; }
+			}
+			cout << endl;
+		}
+		cout << endl;
+
+
+
+
+
+		//vector<tuple<int, int>>Rood;
+
+		vector<int> Rood[2] = { {},{} };
+
+
+		for (int i = 0; i < 4; i++) {
+			//
+			int exPlayerPosx = PlayerPosx + maps[i][0];
+			int exPlayerPosy = PlayerPosy + maps[i][1];
+
+			//if ((movedPlayerx == exPlayerPosx && movedPlayery == exPlayerPosy))continue;
+
+
+			if ((0 <= exPlayerPosx && 0 <= exPlayerPosy) && (map.size() > exPlayerPosx && map[0].size() > exPlayerPosy))
+			{
+				if (map[exPlayerPosx][exPlayerPosy] == 1)
+				{
+					Rood[0].push_back(exPlayerPosx);
+					Rood[1].push_back(exPlayerPosy);
+				}
+			}
+		}
+
+		vector<int> Rvalue = {};
+
+
+		if (Rood[0].size() > 1) {
+
+
+
+			map[(PlayerPosx)][(PlayerPosy)] = 2;
+			CountTile++;
+
+			for (int i = 0; i < Rood[0].size(); i++) {
+				Rload CroosRload1 = { CountTile,Rood[0][i],Rood[1][i] };
+				CroosRload.push(CroosRload1);
+			}
+			return 0;
+
+		}
+		else if (Rood[0].size() == 1) {
+			map[(PlayerPosx)][(PlayerPosy)] = 0;
+
+			CountTile++;
+			Rload CroosRload1 = { CountTile,Rood[0][0],Rood[1][0] };
+			CroosRload.push(CroosRload1);
+			return 0;
+		}
+		else {
+			return-1;
+		}
+
+	}
+
+}
+*/
+//BFS algorithm Recursive funtion 
+
+//
+//int BFS_RecursiveFunction(vector<vector<int> >& map, int PlayerPosx, int PlayerPosy, int CountTile) {
+//
+//	int movedPlayerx = -99;
+//	int movedPlayery = -99;
+//
+//	if (PlayerPosx == map.size() - 1 && PlayerPosy == map[0].size() - 1) {
+//
+//		return CountTile + 1;
+//	}
+//
+//	while (true)
+//	{
+//
+//
+//
+//		for (int i = 0; i < map.size(); i++)
+//		{
+//			for (int j = 0; j < map[0].size(); j++)
+//			{
+//				if ((PlayerPosx) == i && ((PlayerPosy) == j)) {
+//					cout << "▲";
+//					continue;
+//				}
+//
+//				if (map[i][j] == 1) {
+//					cout << "□";
+//				}
+//				else if (map[i][j] == 2) {
+//					cout << "◆";
+//				}
+//				else { cout << "■"; }
+//			}
+//			cout << endl;
+//		}
+//		cout << endl;
+//
+//
+//
+//
+//
+//		//vector<tuple<int, int>>Rood;
+//
+//		vector<int> Rood[2] = { {},{} };
+//
+//		for (int i = 0; i < 4; i++) {
+//			//
+//			int exPlayerPosx = PlayerPosx + maps[i][0];
+//			int exPlayerPosy = PlayerPosy + maps[i][1];
+//
+//			if ((movedPlayerx == exPlayerPosx && movedPlayery == exPlayerPosy))continue;
+//
+//
+//
+//			if ((0 <= exPlayerPosx && 0 <= exPlayerPosy) && (map.size() > exPlayerPosx && map[0].size() > exPlayerPosy))
+//			{
+//				if (map[exPlayerPosx][exPlayerPosy] == 1)
+//				{
+//					Rood[0].push_back(exPlayerPosx);
+//					Rood[1].push_back(exPlayerPosy);
+//				}
+//			}
+//
+//		}
+//		if (Rood[0].size() > 1) {
+//			for (int i = 0; i < Rood[0].size(); i++) {
+//				
+//				int Value = (Rood[0][i] * 10) + Rood[1][i];
+//				
+//				if (CountTile > Croosmap[Value])return-1;
+//
+//				Croosmap[Value] = CountTile;
+//				
+//				
+//				CroosRload.push(new Rload{ Rood[0][i],Rood[1][i],CountTile });
+//			}
+//
+//		}
+//		else if (Rood[0].size() == 1) {
+//			movedPlayerx = PlayerPosx;
+//			movedPlayery = PlayerPosy;
+//			PlayerPosx = (Rood[0][0]);
+//			PlayerPosy = (Rood[1][0]);
+//			CountTile++;
+//		}
+//		else {
+//			
+//			return -1;
+//		}
+//
+//
+//	}
+//
+//}
+
+/*
+int mAPsolution(vector<vector<int> > map, int PlayerPosx, int PlayerPosy, int CountTile)
+{
+
+	if (PlayerPosx == map.size() - 1 && PlayerPosy == map[0].size() - 1) {
+
+		return CountTile + 1;
+	}
+
+	while (true)
+	{
+		if (PlayerPosx == map.size() - 1 && PlayerPosy == map[0].size() - 1) {
+
+			return CountTile + 1;
+		}
+		if (CountTile >= smallerD) {
+			return-1;
+		}
+
+		for (int i = 0; i < map.size(); i++)
+		{
+			for (int j = 0; j < map[0].size(); j++)
+			{
+				if ((PlayerPosx) == i && ((PlayerPosy) == j)) {
+					cout << "▲";
+					continue;
+				}
+
+				if (map[i][j]) {
+					cout << "□";
+				}
+				else { cout << "■"; }
+			}
+			cout << endl;
+		}
+		cout << endl;
+
+
+		//vector<tuple<int, int>>Rood;
+
+		vector<int> Rood[2] = { {},{} };
+		for (int i = 0; i < 4; i++) {
+			//
+			int exPlayerPosx = PlayerPosx + maps[i][0];
+			int exPlayerPosy = PlayerPosy + maps[i][1];
+			if ((0 <= exPlayerPosx && 0 <= exPlayerPosy) &&
+				(map.size() > exPlayerPosx && map[0].size() > exPlayerPosy)
+
+				) {
+				if (map[exPlayerPosx][exPlayerPosy])
+				{
+					Rood[0].push_back(exPlayerPosx);
+					Rood[1].push_back(exPlayerPosy);
+				}
+			}
+		}
+
+		if (Rood[0].size() > 1) {
+
+			vector<int> Rvalue = {};
+
+			 int SRood = { (PlayerPosx*10)+(PlayerPosy) };
+
+			if (Croosmap[SRood] == 0 || Croosmap[SRood] >= CountTile) {
+				Croosmap[SRood]=CountTile;
+			}
+			else {
+				return-1;
+			}
+			map[PlayerPosx][PlayerPosy] = 0;
+			CountTile++;
+
+			for (int i = 0; i < Rood[0].size(); i++) {
+				int RoodPos[2] = { Rood[0][i],Rood[1][i] };
+
+				int returnValue = mAPsolution(map, RoodPos[0],RoodPos[1], CountTile);
+
+				if (returnValue > 0) {
+					Rvalue.push_back(returnValue);
+				}
+			}
+
+			if (Rvalue.size() > 0) {
+				int smaller = Rvalue[0];
+				for (int values : Rvalue) {
+					if (smaller > values) {
+						smaller = values;
+					}
+				}
+				smallerD = smaller;
+				return smaller;
+			}
+			return -1;
+		}
+		else if (Rood[0].size() == 1) {
+			map[PlayerPosx][PlayerPosy] = 0;
+
+			PlayerPosx = (Rood[0][0]);
+			PlayerPosy= (Rood[1][0]);
+
+			CountTile++;
+
+
+		}
+		else {
+			return -1;
+		}
+	}
+
+}
+*/
+
+
+int mAPsolution(vector<vector<int> >& map, int PlayerPosx, int PlayerPosy, int CountTile)
+{
+
+	int roodCount = 0;
+	if (PlayerPosx == map.size() - 1 && PlayerPosy == map[0].size() - 1) {
+
+		return CountTile + 1;
+	}
+
+
+	for (int i = 0; i < map.size(); i++)
+	{
+		for (int j = 0; j < map[0].size(); j++)
+		{
+			if ((PlayerPosx) == i && ((PlayerPosy) == j)) {
+				cout << "▲";
+				continue;
+			}
+
+			if (map[i][j] == 1) {
+				cout << "□";
+			}
+			else if (map[i][j] == 2) {
+				cout << "◆";
+			}
+			else { cout << "■"; }
+		}
+		cout << endl;
+	}
+	cout << endl;
+
+
+	for (int i = 0; i < 4; i++) {
+		//
+		int exPlayerPosx = PlayerPosx + mapMove[i][0];
+		int exPlayerPosy = PlayerPosy + mapMove[i][1];
+
+
+
+
+		if ((0 <= exPlayerPosx && 0 <= exPlayerPosy) && (map.size() > exPlayerPosx && map[0].size() > exPlayerPosy))
+		{
+			if (map[exPlayerPosx][exPlayerPosy] == 1)
+			{
+				Rood[0][roodCount] = exPlayerPosx;
+				Rood[1][roodCount] = exPlayerPosy;
+				roodCount++;
+			}
+		}
+	}
+
+	vector<int> Rvalue = {};
+
+
+	if (roodCount > 0) {
+
+		map[(PlayerPosx)][(PlayerPosy)] = 0;
+
+		CountTile++;
+
+		for (int i = 0; i < roodCount; i++) {
+			Rload CroosRload1 = { CountTile,Rood[0][i],Rood[1][i] };
+			CroosRload.push(CroosRload1);
+		}
+		return 0;
+
+	}
+	else {
+		map[(PlayerPosx)][(PlayerPosy)] = 0;
+		return-1;
+	}
+
+
+}
+
 
 int main() {
+
+	string STR = "abab";
+	//cin >> STR;
+	int Odd = 0;
+	int SameNum = 0;
+	char SameChar = STR[STR.size() - 1];
 	
-	cout<<solution(7,5);
+	for (int i = 0; i < STR.size() - 1; i++)
+	{
+		if (SameChar == STR[i]) {
+			if ((STR.size() - i) % 2) {
+				Odd=1;
+			}
+			else {
+				Odd = 0;
+			}
+	
+			for (int j = i; j < i+((STR.size()-i)-1/2); j++)
+			{
+
+				if (STR[j] == STR[STR.size() -(j - i)-1]) {
+					SameNum++;
+				}
+				else {
+					break;
+				}
+			}
+
+			if (STR.size()-i == SameNum * 2 + Odd) {
+				break;
+			}
+			else
+			{
+				SameNum = 0;
+			}
+
+		}
+	
+	}
+	if (SameNum == 0) {
+		cout << STR.size()*2-1;
+	}
+	int b= STR.size()-(STR.size() - (( SameNum*2)+ Odd));
+	cout << b;
+
+
+
+
+	vector<vector<int> > maps = { {1,0,1,1,1} ,{1,0,1,0,1 }, { 1,0,1,1,1 }, { 1,1,1,0,1 }, { 0,0,0,0,1 }
+	};
+	int answer = -1;
+	int x = 0;
+	int y = 0;
+	Rload Cro = { 0,0,0 };
+	CroosRload.push(Cro);
+	while (!CroosRload.empty())
+	{
+
+		Rload data = CroosRload.front();
+		CroosRload.pop();
+		int Score = 0;
+		int roodCount = 0;
+
+		if (data.x == maps.size() - 1 && data.y == maps[0].size() - 1) {
+
+			return data.value + 1;
+		}
+
+		for (int i = 0; i < maps.size(); i++)
+		{
+			for (int j = 0; j < maps[0].size(); j++)
+			{
+				if ((data.x) == i && ((data.y) == j)) {
+					cout << "▲";
+					continue;
+				}
+
+				if (maps[i][j] == 1) {
+					cout << "□";
+				}
+				else if (maps[i][j] == 2) {
+					cout << "◆";
+				}
+				else { cout << "■"; }
+			}
+			cout << endl;
+		}
+		cout << endl;
+
+
+		for (int i = 0; i < 4; i++) {
+			//
+			int exPlayerPosx = data.x + mapMove[i][0];
+			int exPlayerPosy = data.y + mapMove[i][1];
+
+
+
+
+			if ((0 <= exPlayerPosx && 0 <= exPlayerPosy) && (maps.size() > exPlayerPosx && maps[0].size() > exPlayerPosy))
+			{
+				if (maps[exPlayerPosx][exPlayerPosy] == 1)
+				{
+					Rood[0][roodCount] = exPlayerPosx;
+					Rood[1][roodCount] = exPlayerPosy;
+					roodCount++;
+				}
+			}
+		}
+
+		vector<int> Rvalue = {};
+
+
+		if (roodCount > 1) {
+
+			maps[(data.x)][(data.y)] = 0;
+
+			data.value++;
+
+			for (int i = 0; i < roodCount; i++) {
+				Rload CroosRload1 = { data.value,Rood[0][i],Rood[1][i] };
+				CroosRload.push(CroosRload1);
+			}
+			continue;
+		}
+		else if (roodCount == 1) {
+			data.x = Rood[0][0];
+			data.y = Rood[0][1];
+			data.value++;
+			continue;
+		}
+		else {
+			maps[(data.x)][(data.y)] = 0;
+			continue;
+		}
+
+
+	}
+	cout << answer;
+
+
+
+
+
+	/*	Rload a = CroosRload.front();
+		CroosRload.pop();
+
+		int Score = mAPsolution(maps, a.x, a.y, a.value);
+
+
+
+		if (Score > 0) {
+			answer = Score;
+			break;
+		}*/
+
+
+	cout << answer;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	//solution(7, 3, { 4,2,4,5,3,3,1 });
+
+	vector<int> ans = {};
+	auto a = hackyoul(10, 4, ans);
+
+
+	//string s =")()(";
+	//int garho = 0;
+	//bool answer = true;
+	//for (auto i : s) {
+	//	if (i == '(')garho++;
+	//	else garho--;
+
+	//	if (garho < 0) {
+	//		answer= false;
+	//	}
+
+	//}
+	//
+	//if (garho != 0) answer = false;
+
+
+
+
+
+	int n = 10;  long long k = 20;
+	//[1,2,3,4]
+	//[1,2,4,3]
+
+	//vector<int> answer;
+
+
+
+#pragma region bind 테스트
+
+	//std::function<void(int)> funcName1 = EraToseTenes_chea;
+	//std::function<void(int)> funcName2 = [](int a) {};
+	//std::function<void(int)> funcName3= std::bind(EraToseTenes_chea, 15);
+	//auto funcName4= std::bind(EraToseTenes_chea, 15);
+	//int a=10;
+	//auto funcName5 = std::bind(EraToseTenes_chea, cref(a));
+	//auto funcName6 = std::bind(EraToseTenes_chea, cref(a),EraToseTenes_chea(2));
+
+	//funcName1(2);
+	//funcName2(1);
+	//funcName3(10);//bind 인관계로 15로 실행
+	//funcName4();
+	//a = 20;
+	//funcName5();
+#pragma endregion
+
+
+
+	Player p = { Player(4) };
+	//Player::playerIdle();
+	Player* _P = &p;
+	//Deleg delg;
+	//delg.funcs = &Player::PlayerRender;
+	//p.b = 20;
+	//(p.*delg.funcs)(p);
+	//
+
+	//void(*fun)(Player pa);
+	//fun = [](Player p) {p.playerIdle(); };
+	//fun(p);
+
+	//delg.Deleg.push([_P]() {Player(*_P).playerIdle(); });
+	//delg.Deleg.push([_P]() {_P->playerMove(); });
+	//delg.Deleg.back()();
+	//
+	//p.playerIdle();
+
+	int i = 8;
+	auto f = [i]() {
+		int j = 2;
+		auto m = [=] { cout << i / j; };
+		m();
+	};
+	f();
+	const int UpdateRate = 2;
+	PlayerState State;
+	Deleg StateDelg[PlayerState::GenderCount][UpdateRate] = { { {} ,{} } ,{ {} ,{} } ,{ {}, {} } };
+	StateDelg[0][0].Deleg.push_back([=]() {cout << endl; _P->playerMove(); cout << endl;  });
+	StateDelg[0][1].Deleg.push_back([_P]() {_P->playerMove(); _P->playerIdle(); });
+
+
+	StateDelg[1][0].Deleg.push_back([_P]() {_P->playerMove(); _P->playerIdle(); });
+	StateDelg[1][1].Deleg.push_back([_P]() {_P->playerMove(); _P->playerIdle(); });
+
+
+	StateDelg[2][0].Deleg.push_back([_P]() {_P->playerMove(); cout << "1Update End" << endl; });
+	StateDelg[2][0].Deleg.push_back([_P]() {_P->playerMove(); cout << "1Update End" << endl; });
+	StateDelg[2][0].Deleg.push_back([_P]() {_P->playerMove(); cout << "1Update End" << endl; });
+	StateDelg[2][0].Deleg.push_back([_P]() {_P->playerMove(); cout << "1Update End" << endl; });
+	StateDelg[2][0].Deleg.push_back([_P]() {_P->playerMove(); cout << "1Update End" << endl; });
+
+	StateDelg[2][1].Deleg.push_back([_P]() {_P->playerMove(); _P->playerIdle(); });
+	//switch (State)
+	//{
+	//case Move:
+	//	break;
+	//case Idel:
+	//	break;
+	//case Skill:
+	//	break;
+	//default:
+	//	break;
+	//}
+
+	for (int i = 0; i < GenderCount; i++)
+		for (int j = 0; j < UpdateRate; j++) {
+			for (int k = 0; k < StateDelg[i][j].Deleg.size(); k++) {
+				cout << PlayerState(i) << "," << j << "번째 함수 실행:";
+				(StateDelg[i][j].Deleg[k]());
+			}
+
+		}
+
+	//cout << solution(5, 3);
+
 
 	//vector<int> citations = {3,0,6,1,5};
 	//int answer = 0;
@@ -209,17 +1133,17 @@ int main() {
 	//		break;
 	//	}
 	//}
-	vector<string> babbling = { "ayaye", "uuu", "yeye", "yemawoo", "ayaayaa" };
-	vector<string> CanSay = { "aya","ye","woo","ma" };
-	int answer = 0;
+	//vector<string> babbling = { "ayaye", "uuu", "yeye", "yemawoo", "ayaayaa" };
+	//vector<string> CanSay = { "aya","ye","woo","ma" };
+	//int answer = 0;
 
-	for (auto a : babbling) {
-		for (int i = 0; i < a.size(); i++) {
-			for (int j = 0; j < CanSay.size(); j++) {
+	//for (auto a : babbling) {
+	//	for (int i = 0; i < a.size(); i++) {
+	//		for (int j = 0; j < CanSay.size(); j++) {
 
-			}
-		}
-	}
+	//		}
+	//	}
+	//}
 }
 #pragma region MyRegion
 //MyClass m;
@@ -324,7 +1248,63 @@ int main() {
 
 #pragma region Programers
 
+/*실패한 문제*/
 
+//사각형 자르기
+/*
+* https://m.blog.naver.com/orbis1020/220664563768
+사각형 자르기 문제 패턴을 찾는 부분에서 약간 잘못확인해서 답이랑 거리가 좀있었음
+ppt로 값확인할때 w+h-1 라는 값이 특정 소수에서 나오는걸 보고 다른 값들도 계산해 보고
+ 최대공약수 가 1이 나온것과 아닌것 의 결가값만 비교하였어도 답을 추론할수 있었을거 같음..
+ 답을 봐버려서 아쉽고, 패턴을 찾을때 귀찮다고 특정부분에서 추측한부분만 계속 생각한게 아쉬움
+
+ 대각선이 지나는 격자점의 개수가 가로, 세로 길이의 최대공약수라는 점 , 한줄씩도 계산해 봤지만 눈치못쳄..
+*/
+class BlockCalculate {
+public:
+	double ratio = 0;
+	int W_num = 0;
+	int Max_num = 0;
+	//vector<bool> b;
+	long long OneBlockCalculate();
+};
+long long BlockCalculate::OneBlockCalculate() {
+	if (W_num == Max_num)return 0;
+	long long ih = floor(ratio * (W_num));
+	long long ih2 = ceil((ratio) * (W_num + 1));
+	W_num += 1;
+	if (ih == ih2)
+		return (OneBlockCalculate() + 1);
+	else if (ih < ih2)
+		return (OneBlockCalculate() + (ih2 - ih));
+}
+//하나씩 실행해보는방법 onblock함수
+
+
+//해법 계산법들
+int gcd(int a, int b)
+{
+	int r;
+	while (b != 0)
+	{
+		r = a % b;
+		a = b;
+		b = r;
+	}
+	return a;
+}
+//long long asolution(int w, int h) {
+//	long long answer;
+//	for (int i = 0; i < w; ++i) {
+//		answer += (int)((double)h * i / w);
+//	}
+//
+//	return 2 * answer;
+//
+//	return   ceil(double(h) / w) * w;
+//}
+
+/*실패한 문제*/
 
 
 string Number_partner(string X, string Y) {
@@ -1538,6 +2518,8 @@ void HashFunc1() {
 }
 
 #pragma endregion
+
+
 //백준 뭐였지
 void func() {
 	int MabangZinSize = 0, i, j;
@@ -1562,6 +2544,22 @@ void func() {
 	(M == false) ? std::cout << "NO" : std::cout << "YES";
 }
 
+int Addercycle(int Num) {
+
+	int answer = 0;
+	if (Num < 10) Num *= 10;
+	int temp = Num;
+	while (true) {
+		int front = temp / 10;
+		int back = temp % 10;
+		int c = (front + back) % 10;
+		temp = (back * 10) + c;
+		answer++;
+		if (temp == Num) break;
+	}
+
+	return answer;
+}
 
 /*
 장르별로 재생된 노래를 2개씩 모아야함

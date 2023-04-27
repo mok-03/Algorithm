@@ -1,28 +1,33 @@
 ﻿  Programmers.cpp
-D:\Mok\Mok\Algorithm\Algorithm\Algorithm\Programmers.cpp(77,25): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\Mok\Mok\Algorithm\Algorithm\Algorithm\Programmers.cpp(197,18): warning C4244: '=': 'float'에서 'unsigned __int64'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\Mok\Mok\Algorithm\Algorithm\Algorithm\Programmers.cpp(349,42): warning C4267: '+=': 'size_t'에서 '_Ty'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\Mok\Mok\Algorithm\Algorithm\Algorithm\Programmers.cpp(79,25): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\Mok\Mok\Algorithm\Algorithm\Algorithm\Programmers.cpp(433,10): warning C4067: 전처리기 지시문 다음에 예기치 않은 토큰이 있습니다. 줄 바꿈 문자가 필요합니다.
+D:\Mok\Mok\Algorithm\Algorithm\Algorithm\Programmers.cpp(871,54): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\Mok\Mok\Algorithm\Algorithm\Algorithm\Programmers.cpp(1086,14): warning C4101: 'State' :참조되지 않은 지역 변수입니다.
+D:\Mok\Mok\Algorithm\Algorithm\Algorithm\Programmers.cpp(1273,15): warning C4244: '초기화 중': 'double'에서 '__int64'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\Mok\Mok\Algorithm\Algorithm\Algorithm\Programmers.cpp(1274,16): warning C4244: '초기화 중': 'double'에서 '__int64'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\Mok\Mok\Algorithm\Algorithm\Algorithm\Programmers.cpp(1349,28): warning C4267: '+=': 'size_t'에서 '_Ty'(으)로 변환하면서 데이터가 손실될 수 있습니다.
           with
           [
               _Ty=int
           ]
-D:\Mok\Mok\Algorithm\Algorithm\Algorithm\Programmers.cpp(351,26): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\Mok\Mok\Algorithm\Algorithm\Algorithm\Programmers.cpp(550,9): warning C4244: 'return': '__int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\Mok\Mok\Algorithm\Algorithm\Algorithm\Programmers.cpp(595,5): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\Mok\Mok\Algorithm\Algorithm\Algorithm\Programmers.cpp(773,40): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\Mok\Mok\Algorithm\Algorithm\Algorithm\Programmers.cpp(943,2): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\Mok\Mok\Algorithm\Algorithm\Algorithm\Programmers.cpp(958,2): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\Mok\Mok\Algorithm\Algorithm\Algorithm\Programmers.cpp(1033,3): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\Mok\Mok\Algorithm\Algorithm\Algorithm\Programmers.cpp(1055,49): warning C4834: 'nodiscard' 특성이 포함된 함수의 반환 값을 버리는 중
-D:\Mok\Mok\Algorithm\Algorithm\Algorithm\Programmers.cpp(1056,56): warning C4244: '=': 'double'에서 '_Ty'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\Mok\Mok\Algorithm\Algorithm\Algorithm\Programmers.cpp(1351,26): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\Mok\Mok\Algorithm\Algorithm\Algorithm\Programmers.cpp(1550,9): warning C4244: 'return': '__int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\Mok\Mok\Algorithm\Algorithm\Algorithm\Programmers.cpp(1595,5): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\Mok\Mok\Algorithm\Algorithm\Algorithm\Programmers.cpp(1773,40): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\Mok\Mok\Algorithm\Algorithm\Algorithm\Programmers.cpp(1943,2): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\Mok\Mok\Algorithm\Algorithm\Algorithm\Programmers.cpp(1958,2): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\Mok\Mok\Algorithm\Algorithm\Algorithm\Programmers.cpp(2033,3): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\Mok\Mok\Algorithm\Algorithm\Algorithm\Programmers.cpp(2055,49): warning C4834: 'nodiscard' 특성이 포함된 함수의 반환 값을 버리는 중
+D:\Mok\Mok\Algorithm\Algorithm\Algorithm\Programmers.cpp(2056,56): warning C4244: '=': 'double'에서 '_Ty'(으)로 변환하면서 데이터가 손실될 수 있습니다.
           with
           [
               _Ty=int
           ]
-D:\Mok\Mok\Algorithm\Algorithm\Algorithm\Programmers.cpp(1057,56): warning C4244: '=': 'double'에서 '_Ty'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\Mok\Mok\Algorithm\Algorithm\Algorithm\Programmers.cpp(2057,56): warning C4244: '=': 'double'에서 '_Ty'(으)로 변환하면서 데이터가 손실될 수 있습니다.
           with
           [
               _Ty=int
           ]
-D:\Mok\Mok\Algorithm\Algorithm\Algorithm\Programmers.cpp(1146,30): warning C4244: '+=': 'double'에서 '__int64'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\Mok\Mok\Algorithm\Algorithm\Algorithm\Programmers.cpp(2146,18): warning C4244: '+=': 'double'에서 '__int64'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\Mok\Mok\Algorithm\Algorithm\Algorithm\Programmers.cpp(1280): warning C4715: 'BlockCalculate::OneBlockCalculate': 모든 제어 경로에서 값을 반환하지는 않습니다.
   Algorithm.vcxproj -> D:\Mok\Mok\Algorithm\Algorithm\x64\Debug\Algorithm.exe
