@@ -440,7 +440,82 @@ public:
 static const int mapMove[4][2] = { {0,1},{1,0},{0,-1} ,{-1,0} };
 queue<Rload> CroosRload = {};
 int Rood[2][4] = { {0,0,0,0},{0,0,0,0} };
+#pragma region DethCode 
 
+int mAPsolution(vector<vector<int> >& map, int PlayerPosx, int PlayerPosy, int CountTile)
+{
+
+	int roodCount = 0;
+	if (PlayerPosx == map.size() - 1 && PlayerPosy == map[0].size() - 1) {
+
+		return CountTile + 1;
+	}
+
+
+	for (int i = 0; i < map.size(); i++)
+	{
+		for (int j = 0; j < map[0].size(); j++)
+		{
+			if ((PlayerPosx) == i && ((PlayerPosy) == j)) {
+				cout << "▲";
+				continue;
+			}
+
+			if (map[i][j] == 1) {
+				cout << "□";
+			}
+			else if (map[i][j] == 2) {
+				cout << "◆";
+			}
+			else { cout << "■"; }
+		}
+		cout << endl;
+	}
+	cout << endl;
+
+
+	for (int i = 0; i < 4; i++) {
+		//
+		int exPlayerPosx = PlayerPosx + mapMove[i][0];
+		int exPlayerPosy = PlayerPosy + mapMove[i][1];
+
+
+
+
+		if ((0 <= exPlayerPosx && 0 <= exPlayerPosy) && (map.size() > exPlayerPosx && map[0].size() > exPlayerPosy))
+		{
+			if (map[exPlayerPosx][exPlayerPosy] == 1)
+			{
+				Rood[0][roodCount] = exPlayerPosx;
+				Rood[1][roodCount] = exPlayerPosy;
+				roodCount++;
+			}
+		}
+	}
+
+	vector<int> Rvalue = {};
+
+
+	if (roodCount > 0) {
+
+		map[(PlayerPosx)][(PlayerPosy)] = 0;
+
+		CountTile++;
+
+		for (int i = 0; i < roodCount; i++) {
+			Rload CroosRload1 = { CountTile,Rood[0][i],Rood[1][i] };
+			CroosRload.push(CroosRload1);
+		}
+		return 0;
+
+	}
+	else {
+		map[(PlayerPosx)][(PlayerPosy)] = 0;
+		return-1;
+	}
+
+
+}
 /*
 int mAPsolution(vector<vector<int> >& map, int PlayerPosx, int PlayerPosy, int CountTile)
 {
@@ -748,105 +823,91 @@ int mAPsolution(vector<vector<int> > map, int PlayerPosx, int PlayerPosy, int Co
 }
 */
 
-
-int mAPsolution(vector<vector<int> >& map, int PlayerPosx, int PlayerPosy, int CountTile)
-{
-
-	int roodCount = 0;
-	if (PlayerPosx == map.size() - 1 && PlayerPosy == map[0].size() - 1) {
-
-		return CountTile + 1;
-	}
+#pragma endregion
 
 
-	for (int i = 0; i < map.size(); i++)
-	{
-		for (int j = 0; j < map[0].size(); j++)
+int solution(int n, vector<vector<int>> computers) {
+	int answer = 0;
+	queue<int> BFS = {};
+	BFS.push(21);
+	for (int i = 2; i <= n; i++) {
+
+		while (!BFS.empty())
 		{
-			if ((PlayerPosx) == i && ((PlayerPosy) == j)) {
-				cout << "▲";
-				continue;
+			int data = BFS.front();
+			BFS.pop();
+			int x = (data / 10)-1;
+			int y = (data % 10)-1;
+			if (computers[x][y] == 1) {
+				computers[x][y]= 
+			}
+			else {
+
 			}
 
-			if (map[i][j] == 1) {
-				cout << "□";
-			}
-			else if (map[i][j] == 2) {
-				cout << "◆";
-			}
-			else { cout << "■"; }
 		}
-		cout << endl;
-	}
-	cout << endl;
 
 
-	for (int i = 0; i < 4; i++) {
-		//
-		int exPlayerPosx = PlayerPosx + mapMove[i][0];
-		int exPlayerPosy = PlayerPosy + mapMove[i][1];
-
-
-
-
-		if ((0 <= exPlayerPosx && 0 <= exPlayerPosy) && (map.size() > exPlayerPosx && map[0].size() > exPlayerPosy))
-		{
-			if (map[exPlayerPosx][exPlayerPosy] == 1)
-			{
-				Rood[0][roodCount] = exPlayerPosx;
-				Rood[1][roodCount] = exPlayerPosy;
-				roodCount++;
-			}
+		if (computers[i-1][i-1] == 1) {
+			BFS.push({ ((i - 1) * 10) + i });
+			BFS.push({ ((i + 1) * 10) + i });
+			// bfs 에서 꺼내서 반복할때 i보다 큰지 작은지 확인하고 틀을 넘지않게끔 반복
 		}
-	}
-
-	vector<int> Rvalue = {};
 
 
-	if (roodCount > 0) {
-
-		map[(PlayerPosx)][(PlayerPosy)] = 0;
-
-		CountTile++;
-
-		for (int i = 0; i < roodCount; i++) {
-			Rload CroosRload1 = { CountTile,Rood[0][i],Rood[1][i] };
-			CroosRload.push(CroosRload1);
-		}
-		return 0;
-
-	}
-	else {
-		map[(PlayerPosx)][(PlayerPosy)] = 0;
-		return-1;
 	}
 
 
+
+	return answer;
 }
 
-
 int main() {
+
+
+	solution(3, { {1,1,0}, {1,1,0}, {0,0,1} });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	string STR = "abab";
 	//cin >> STR;
 	int Odd = 0;
 	int SameNum = 0;
 	char SameChar = STR[STR.size() - 1];
-	
+
 	for (int i = 0; i < STR.size() - 1; i++)
 	{
 		if (SameChar == STR[i]) {
 			if ((STR.size() - i) % 2) {
-				Odd=1;
+				Odd = 1;
 			}
 			else {
 				Odd = 0;
 			}
-	
-			for (int j = i; j < i+((STR.size()-i)-1/2); j++)
+
+			for (int j = i; j < i + ((STR.size() - i) - 1 / 2); j++)
 			{
 
-				if (STR[j] == STR[STR.size() -(j - i)-1]) {
+				if (STR[j] == STR[STR.size() - (j - i) - 1]) {
 					SameNum++;
 				}
 				else {
@@ -854,7 +915,7 @@ int main() {
 				}
 			}
 
-			if (STR.size()-i == SameNum * 2 + Odd) {
+			if (STR.size() - i == SameNum * 2 + Odd) {
 				break;
 			}
 			else
@@ -863,12 +924,12 @@ int main() {
 			}
 
 		}
-	
+
 	}
 	if (SameNum == 0) {
-		cout << STR.size()*2-1;
+		cout << STR.size() * 2 - 1;
 	}
-	int b= STR.size()-(STR.size() - (( SameNum*2)+ Odd));
+	int b = STR.size() - (STR.size() - ((SameNum * 2) + Odd));
 	cout << b;
 
 
