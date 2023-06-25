@@ -12,8 +12,10 @@
 #include<bitset>
 #include "Programmers.h"
 #include <functional>
-using namespace std;
 //퀵정렬
+
+using namespace std;
+
 vector<int> QuickSortting(vector<int> a)
 {
 	/*
@@ -828,9 +830,74 @@ int mAPsolution(vector<vector<int> > map, int PlayerPosx, int PlayerPosy, int Co
 
 int solution(int n, vector<vector<int>> computers) {
 	int answer = 0;
-	queue<int> BFS = {};
-	BFS.push(21);
-	for (int i = 2; i <= n; i++) {
+	//queue<pair<int, int>> DFS = {};
+	queue<int> DFS = {};
+	//DFS.push({1, 1});
+	DFS.push(1);
+
+	int NowNetworkNum = 2;
+	while (!DFS.empty())
+	{
+
+		for (int i = 0; i < computers.size(); i++)
+		{
+			for (int j = 0; j < computers[0].size(); j++)
+			{
+				if (i == j) {
+					cout << computers[i][j];
+					continue;
+				}
+
+				if (computers[i][j] == 1) {
+					cout << "□";
+				}
+				else if (computers[i][j] == 2) {
+					cout << "◆";
+				}
+				else { cout << "■"; }
+			}
+			cout << endl;
+		}
+		cout << endl;
+
+
+		//y축
+		auto data = DFS.front();
+		DFS.pop();
+
+		//x축 탐색
+		for (int i = 0; i < n; i++) {
+			// x축과 y축 같으면 노드임으로 break;
+			if (i == data)continue;
+
+			//만약 연결 데이터가 1일경우
+			if (computers[data][i] == 1) {
+				//둘의 노드값의 데이터가 다른지 확인
+				if (computers[i][i] != computers[data][data]) {
+
+					//큰수를 작은수에 넣는다.
+					computers[data][data] < computers[i][i] ? computers[i][i] = computers[data][data] : computers[data][data] = computers[i][i];
+
+
+					//다르다면?
+					// 1,2,3    4,5 일때
+					// 1,2,3에서 4가 1과 단일 연결이 되었음 그러면
+					// 
+
+
+
+				}
+			}
+		}
+
+
+
+
+
+
+
+	}
+	/*for (int i = 2; i <= n; i++) {
 
 		while (!BFS.empty())
 		{
@@ -839,7 +906,7 @@ int solution(int n, vector<vector<int>> computers) {
 			int x = (data / 10)-1;
 			int y = (data % 10)-1;
 			if (computers[x][y] == 1) {
-				computers[x][y]= 
+				computers[x][y];
 			}
 			else {
 
@@ -855,7 +922,9 @@ int solution(int n, vector<vector<int>> computers) {
 		}
 
 
-	}
+	}*/
+
+
 
 
 
@@ -878,153 +947,143 @@ int main() {
 
 
 
+	//string STR = "abab";
+	////cin >> STR;
+	//int Odd = 0;
+	//int SameNum = 0;
+	//char SameChar = STR[STR.size() - 1];
+
+	//for (int i = 0; i < STR.size() - 1; i++)
+	//{
+	//	if (SameChar == STR[i]) {
+	//		if ((STR.size() - i) % 2) {
+	//			Odd = 1;
+	//		}
+	//		else {
+	//			Odd = 0;
+	//		}
+
+	//		for (int j = i; j < i + ((STR.size() - i) - 1 / 2); j++)
+	//		{
+
+	//			if (STR[j] == STR[STR.size() - (j - i) - 1]) {
+	//				SameNum++;
+	//			}
+	//			else {
+	//				break;
+	//			}
+	//		}
+
+	//		if (STR.size() - i == SameNum * 2 + Odd) {
+	//			break;
+	//		}
+	//		else
+	//		{
+	//			SameNum = 0;
+	//		}
+
+	//	}
+
+	//}
+	//if (SameNum == 0) {
+	//	cout << STR.size() * 2 - 1;
+	//}
+	//int b = STR.size() - (STR.size() - ((SameNum * 2) + Odd));
+	//cout << b;
 
 
 
 
+	//vector<vector<int> > maps = { {1,0,1,1,1} ,{1,0,1,0,1 }, { 1,0,1,1,1 }, { 1,1,1,0,1 }, { 0,0,0,0,1 }
+	//};
+	//int answer = -1;
+	//int x = 0;
+	//int y = 0;
+	//Rload Cro = { 0,0,0 };
+	//CroosRload.push(Cro);
+	//while (!CroosRload.empty())
+	//{
+
+	//	Rload data = CroosRload.front();
+	//	CroosRload.pop();
+	//	int Score = 0;
+	//	int roodCount = 0;
+
+	//	if (data.x == maps.size() - 1 && data.y == maps[0].size() - 1) {
+
+	//		return data.value + 1;
+	//	}
+
+	//	for (int i = 0; i < maps.size(); i++)
+	//	{
+	//		for (int j = 0; j < maps[0].size(); j++)
+	//		{
+	//			if ((data.x) == i && ((data.y) == j)) {
+	//				cout << "▲";
+	//				continue;
+	//			}
+
+	//			if (maps[i][j] == 1) {
+	//				cout << "□";
+	//			}
+	//			else if (maps[i][j] == 2) {
+	//				cout << "◆";
+	//			}
+	//			else { cout << "■"; }
+	//		}
+	//		cout << endl;
+	//	}
+	//	cout << endl;
+
+
+	//	for (int i = 0; i < 4; i++) {
+	//		//
+	//		int exPlayerPosx = data.x + mapMove[i][0];
+	//		int exPlayerPosy = data.y + mapMove[i][1];
 
 
 
 
+	//		if ((0 <= exPlayerPosx && 0 <= exPlayerPosy) && (maps.size() > exPlayerPosx && maps[0].size() > exPlayerPosy))
+	//		{
+	//			if (maps[exPlayerPosx][exPlayerPosy] == 1)
+	//			{
+	//				Rood[0][roodCount] = exPlayerPosx;
+	//				Rood[1][roodCount] = exPlayerPosy;
+	//				roodCount++;
+	//			}
+	//		}
+	//	}
+
+	//	vector<int> Rvalue = {};
 
 
-	string STR = "abab";
-	//cin >> STR;
-	int Odd = 0;
-	int SameNum = 0;
-	char SameChar = STR[STR.size() - 1];
+	//	if (roodCount > 1) {
 
-	for (int i = 0; i < STR.size() - 1; i++)
-	{
-		if (SameChar == STR[i]) {
-			if ((STR.size() - i) % 2) {
-				Odd = 1;
-			}
-			else {
-				Odd = 0;
-			}
+	//		maps[(data.x)][(data.y)] = 0;
 
-			for (int j = i; j < i + ((STR.size() - i) - 1 / 2); j++)
-			{
+	//		data.value++;
 
-				if (STR[j] == STR[STR.size() - (j - i) - 1]) {
-					SameNum++;
-				}
-				else {
-					break;
-				}
-			}
-
-			if (STR.size() - i == SameNum * 2 + Odd) {
-				break;
-			}
-			else
-			{
-				SameNum = 0;
-			}
-
-		}
-
-	}
-	if (SameNum == 0) {
-		cout << STR.size() * 2 - 1;
-	}
-	int b = STR.size() - (STR.size() - ((SameNum * 2) + Odd));
-	cout << b;
+	//		for (int i = 0; i < roodCount; i++) {
+	//			Rload CroosRload1 = { data.value,Rood[0][i],Rood[1][i] };
+	//			CroosRload.push(CroosRload1);
+	//		}
+	//		continue;
+	//	}
+	//	else if (roodCount == 1) {
+	//		data.x = Rood[0][0];
+	//		data.y = Rood[0][1];
+	//		data.value++;
+	//		continue;
+	//	}
+	//	else {
+	//		maps[(data.x)][(data.y)] = 0;
+	//		continue;
+	//	}
 
 
-
-
-	vector<vector<int> > maps = { {1,0,1,1,1} ,{1,0,1,0,1 }, { 1,0,1,1,1 }, { 1,1,1,0,1 }, { 0,0,0,0,1 }
-	};
-	int answer = -1;
-	int x = 0;
-	int y = 0;
-	Rload Cro = { 0,0,0 };
-	CroosRload.push(Cro);
-	while (!CroosRload.empty())
-	{
-
-		Rload data = CroosRload.front();
-		CroosRload.pop();
-		int Score = 0;
-		int roodCount = 0;
-
-		if (data.x == maps.size() - 1 && data.y == maps[0].size() - 1) {
-
-			return data.value + 1;
-		}
-
-		for (int i = 0; i < maps.size(); i++)
-		{
-			for (int j = 0; j < maps[0].size(); j++)
-			{
-				if ((data.x) == i && ((data.y) == j)) {
-					cout << "▲";
-					continue;
-				}
-
-				if (maps[i][j] == 1) {
-					cout << "□";
-				}
-				else if (maps[i][j] == 2) {
-					cout << "◆";
-				}
-				else { cout << "■"; }
-			}
-			cout << endl;
-		}
-		cout << endl;
-
-
-		for (int i = 0; i < 4; i++) {
-			//
-			int exPlayerPosx = data.x + mapMove[i][0];
-			int exPlayerPosy = data.y + mapMove[i][1];
-
-
-
-
-			if ((0 <= exPlayerPosx && 0 <= exPlayerPosy) && (maps.size() > exPlayerPosx && maps[0].size() > exPlayerPosy))
-			{
-				if (maps[exPlayerPosx][exPlayerPosy] == 1)
-				{
-					Rood[0][roodCount] = exPlayerPosx;
-					Rood[1][roodCount] = exPlayerPosy;
-					roodCount++;
-				}
-			}
-		}
-
-		vector<int> Rvalue = {};
-
-
-		if (roodCount > 1) {
-
-			maps[(data.x)][(data.y)] = 0;
-
-			data.value++;
-
-			for (int i = 0; i < roodCount; i++) {
-				Rload CroosRload1 = { data.value,Rood[0][i],Rood[1][i] };
-				CroosRload.push(CroosRload1);
-			}
-			continue;
-		}
-		else if (roodCount == 1) {
-			data.x = Rood[0][0];
-			data.y = Rood[0][1];
-			data.value++;
-			continue;
-		}
-		else {
-			maps[(data.x)][(data.y)] = 0;
-			continue;
-		}
-
-
-	}
-	cout << answer;
+	//}
+	//cout << answer;
 
 
 
@@ -1043,7 +1102,6 @@ int main() {
 		}*/
 
 
-	cout << answer;
 
 
 
@@ -1064,7 +1122,7 @@ int main() {
 
 
 
-	//solution(7, 3, { 4,2,4,5,3,3,1 });
+		//solution(7, 3, { 4,2,4,5,3,3,1 });
 
 	vector<int> ans = {};
 	auto a = hackyoul(10, 4, ans);
@@ -2581,6 +2639,35 @@ void HashFunc1() {
 #pragma endregion
 
 
+void CommandPrompet() {
+	vector<string> dirp = {};
+	int num;
+	std::cin >> num;
+	for (int i = 0; i < num; i++) {
+
+		string str = "";
+		std::cin >> str;
+		dirp.push_back(str);
+	}
+
+	string answer = "";
+	for (int i = 0; i < dirp[0].size(); i++) {
+		char c = dirp[0][i];
+		for (int j = 1; j < num; j++) {
+			if (c != dirp[j][i]) {
+				c = '?';
+			}
+		}
+		answer += c;
+
+	}
+	std::cout << answer;
+
+}
+
+
+
+
 //백준 뭐였지
 void func() {
 	int MabangZinSize = 0, i, j;
@@ -2605,6 +2692,25 @@ void func() {
 	(M == false) ? std::cout << "NO" : std::cout << "YES";
 }
 
+
+void DNA_decoding() {
+	//https://www.acmicpc.net/source/34482341 c는 신이야!  c는 신이야!
+
+
+	unordered_map<char, int>Hash_map{ {'A',0},{'G',1},{'C',2},{'T',3 } };
+	vector<vector<char>> Yumgi_Map{ {'A','C','A','G'}, {'C','G','T','A'}, {'A','T','C','G'} ,{'G','A','G','T'} };
+	int yumgiNum = 0;
+	string Str;
+	std::cin >> yumgiNum;
+	std::cin >> Str;
+
+	for (int i = yumgiNum - 1; 0 < i; i--) {
+		Str[i - 1] = Yumgi_Map[Hash_map[Str[i - 1]]][Hash_map[Str[i]]];
+	}
+
+	cout << Str[0];
+}
+
 int Addercycle(int Num) {
 
 	int answer = 0;
@@ -2620,6 +2726,24 @@ int Addercycle(int Num) {
 	}
 
 	return answer;
+}
+
+void snailMove() {
+
+	int snail_Map_m = 11;
+	int snail_Map_n = 10;
+	int Banswer = 0;
+	//std::cin >> snail_Map_m >> snail_Map_n;
+
+	Banswer = snail_Map_m > snail_Map_n ? snail_Map_n : snail_Map_m;
+
+	Banswer = ((Banswer - 1) * 2);
+
+	if (snail_Map_m > snail_Map_n) {
+		Banswer++;
+	}
+	cout << Banswer;
+
 }
 
 /*
