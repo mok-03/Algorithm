@@ -1,0 +1,95 @@
+﻿  Algorithm_2023.cpp
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\maze.h(25,3): warning C4091: 'static ': 변수를 선언하지 않으면 'Mazemap::PlayerMoverDirection' 왼쪽은 무시됩니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\maze.h(31,3): warning C4091: 'static ': 변수를 선언하지 않으면 'Mazemap::MapState' 왼쪽은 무시됩니다.
+  maze.cpp
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\maze.h(25,3): warning C4091: 'static ': 변수를 선언하지 않으면 'Mazemap::PlayerMoverDirection' 왼쪽은 무시됩니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\maze.h(31,3): warning C4091: 'static ': 변수를 선언하지 않으면 'Mazemap::MapState' 왼쪽은 무시됩니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\maze.cpp(20,2): warning C4091: 'static ': 변수를 선언하지 않으면 'Render' 왼쪽은 무시됩니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\maze.cpp(134,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\maze.cpp(142,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  Programmers.cpp
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(85,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(103,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(114,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(218,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(229,23): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(244,22): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(434,10): warning C4067: 전처리기 지시문 다음에 예기치 않은 토큰이 있습니다. 줄 바꿈 문자가 필요합니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(456,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(458,21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(486,63): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(486,95): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(841,21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(843,22): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(1376,22): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(1345,14): warning C4101: 'State' :참조되지 않은 지역 변수입니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(1532,15): warning C4244: '초기화 중': 'double'에서 '__int64'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(1533,16): warning C4244: '초기화 중': 'double'에서 '__int64'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(1573,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(1577,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(1633,20): warning C4018: '<=': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(1635,9): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(1723,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(1752,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(1773,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(1809,9): warning C4244: 'return': '__int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(1820,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(1837,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(1840,21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(1843,25): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(1847,22): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(1917,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(1918,25): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(1990,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(2002,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(2003,25): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(2033,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(2050,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(2051,25): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(2063,23): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(2088,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(2104,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(2135,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(2164,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(2264,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(2304,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(2314,49): warning C4834: 'nodiscard' 특성이 포함된 함수의 반환 값을 버리는 중
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(2315,56): warning C4244: '=': 'double'에서 '_Ty'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(2316,56): warning C4244: '=': 'double'에서 '_Ty'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(2352,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(2354,21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(2361,27): warning C4018: '>=': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(2404,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(2405,18): warning C4244: '+=': 'double'에서 '__int64'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(2416,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(2475,21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(2487,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(2507,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(2533,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(2541,21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(2547,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(2551,21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(2577,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(2578,21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(2623,21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(2672,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(2674,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(2732,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(2739,21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(2760,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(2767,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(2847,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(2897,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(2932,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(3016,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  코드를 생성하고 있습니다...
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(1539): warning C4715: 'BlockCalculate::OneBlockCalculate': 모든 제어 경로에서 값을 반환하지는 않습니다.
+C:\Users\MOK\Programing\Algorithm\Algorithm\Algorithm\Programmers.cpp(944): error C4716: 'QurdGrap': 값을 반환해야 합니다.
